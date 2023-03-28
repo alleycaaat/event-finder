@@ -1,19 +1,20 @@
 import EventItem from './event-item';
+import classes from './event-list.module.scss';
 
 const EventList = (props) => {
     const { events } = props;
-    
+
     return (
         <section>
             <h1>Events</h1>
-            <ul>
+            <ul className={classes.list}>
                 {events.map((event) => (
                     <EventItem
                         key={event.id}
                         id={event.id}
                         title={event.title}
                         location={event.location}
-                        data={event.data}
+                        date={event.date}
                         image={event.image}
                     />
                 ))}
