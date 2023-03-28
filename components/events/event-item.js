@@ -1,33 +1,36 @@
 import Link from 'next/link';
 
+import classes from './event-item.module.scss';
+
 const EventItem = (props) => {
     const { title, image, date, location, id } = props;
     const humanDate = new Date(date).toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'long',
-        year: 'numeric'
+        year: 'numeric',
     });
+
     //replace commas in addresses with line break
     const formatAddy = location.replace(', ', '\n');
 
     const eventLink = `/events/${ id }`;
 
     return (
-        <li>
+        <li className={classes.item}>
             <img src={'/' + image} alt='' />
-            <div>
-                <div>
+            <div className={classes.content}>
+                <div className={classes.summary}>
                     <h2>{title}</h2>
                 </div>
-                <div>
+                <div className={classes.date}>
                     <time>{humanDate}</time>
                 </div>
                 <div>
-                    <address>
+                    <address className={classes.address}>
                         {formatAddy}
                     </address>
                 </div>
-                <div>
+                <div className={classes.actions}>
                     <Link href={eventLink}>Explore Event</Link>
                 </div>
             </div>
