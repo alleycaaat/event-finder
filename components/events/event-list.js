@@ -6,7 +6,6 @@ const EventList = (props) => {
 
     return (
         <section>
-            <h1>Events</h1>
             <ul className={classes.list}>
                 {events.map((event) => (
                     <EventItem
