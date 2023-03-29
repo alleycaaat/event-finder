@@ -4,7 +4,6 @@ import EventSummary from '@/components/event-detail/event-summary';
 
 import { getEventById } from '@/dummy-data';
 import { useRouter } from 'next/router';
-import { Fragment } from 'react';
 
 const EventDetail = () => {
     const router = useRouter();
@@ -16,7 +15,7 @@ const EventDetail = () => {
         return <p>No event found</p>;
     }
     return (
-        <Fragment>
+        <>
             <article>
                 <EventSummary title={event.title} />
                 <EventLogistics
@@ -28,7 +27,7 @@ const EventDetail = () => {
                 <EventContent />
                 <p>{event.description}</p>
             </article>
-        </Fragment>
+        </>
     );
 };
 
